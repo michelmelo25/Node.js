@@ -20,3 +20,10 @@ ir processando os dados do arquivo a medida que ele esta chegando, sem a nesseci
 
 // process.stdin.pipe(process.stdout)
 recebe a informação digitada no terminal e devolve para o terminal
+
+- STREAM DE ESCRIA E TRANSFORMAÇÃO
+chunk -> é um pedaçõ que foi ledo na stream de leitura, tudo que é inviado em this.push
+encoding -> como a informação esta codificada 
+callback -> é uma função que a stream de escrita prscisa chamar quando ela terminou de fazer o que ela precisava fazer com aquela informação
+
+dentro da stream de escrita, a gente não retorna nada, ela processa o dado, ela nunca vai transformar um dado em alguma outra coisa. Ela vai apenas processar o dado.
