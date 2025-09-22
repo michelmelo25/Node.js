@@ -27,3 +27,9 @@ encoding -> como a informação esta codificada
 callback -> é uma função que a stream de escrita prscisa chamar quando ela terminou de fazer o que ela precisava fazer com aquela informação
 
 dentro da stream de escrita, a gente não retorna nada, ela processa o dado, ela nunca vai transformar um dado em alguma outra coisa. Ela vai apenas processar o dado.
+
+A stream de escrita, eu só consigo escrever dados para ela. A stream de transformação, ela obrigatoriamente precisa ler dados de algum lugar e escrever dados para outro lugar. Ela é uma stream utilizada no intermeio para comunicação entre duas outras streams. 
+
+uma stream duplex, que pode ter tanto o método de leitura quanto o método de escrita, ou seja, ela pode fazer qualquer tipo de operação, tanto leitura quanto escrita.
+
+poderia pensar uma stream duplex como sendo um arquivo físico do nosso sistema. um arquivo no nosso sistema, podemos tanto ler ele quanto escrever nele, mas não necessariamente pode transformar algo dentro dele.
