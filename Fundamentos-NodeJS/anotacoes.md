@@ -11,6 +11,33 @@ Statfull sempre tera informções sava em memoria
 
 Stateless não salva nada em memoria, sempre dispositivo esterno como banco de dados ou arquivo
 
+
+// - Criar usuário
+// - Listagem de Usuários
+// - Edição de Usuários
+// - Remoção de Usuários
+
+// - HTTP
+//    - Método HTTP
+//    - URL
+//    - Cabeçalhos
+//    - Corpo (body)
+
+// GET => Busca um recurso do back-end
+// POST => Cria um recurso no back-end
+// PUT => Atualiza um recurso do back-end
+// PATCH => Atualiza uma informação específica de um recurso no back-end
+// DELETE => Remove um recurso do back-end
+
+// GET /users => Busca um recurso do Back-end
+// POST /users => Cria um recurso no Back-end
+
+// Stateful - Stateless
+
+// Cabeçalhos (Requisição/resposta) => Metadados
+
+// HTTP Status Code
+
 - SREAMS NO NODE.JS
 // Importação de Cliente via SCV (Excel)
 
@@ -37,3 +64,11 @@ poderia pensar uma stream duplex como sendo um arquivo físico do nosso sistema.
 modulos http, corpo da requisicao JSON e middleware
 
 middleware é um interceptar, que sempre resebe como parametro o request e response
+
+
+- Query Parameters: URL Stateful => filtros, aginação, não obrigatorio
+    - enviar informações não senciveis para modificar a resposta do back end
+    - http://localhost:3333/users?userId=1&name=michel
+- Route Parameters: Identificação de resurso, parametros não nomeados,
+    - GETE http://localhost:3333/users/1
+- Request Body: envio de informações de um formulário
