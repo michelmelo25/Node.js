@@ -1,5 +1,7 @@
 import http from 'node:http' 
 import { json } from './middlewares/json.js'
+import { Database } from './database.js'
+import { randomUUID } from 'node:crypto'
 
 // - Criar usuário
 // - Listagem de Usuários
@@ -27,7 +29,7 @@ import { json } from './middlewares/json.js'
 
 // HTTP Status Code
 
-const users = []
+const database = new Database()
 
 const server = http.createServer(async (request, response) => {
   const {method, url} = request
@@ -37,6 +39,7 @@ const server = http.createServer(async (request, response) => {
   // console.log(body)
 
   if(method === 'GET' && url === '/users'){
+    const users = database.select('users')
     return response    
     .end(JSON.stringify(users))
   }
@@ -45,12 +48,14 @@ const server = http.createServer(async (request, response) => {
   if(method === 'POST' && url ==='/users'){
 
     const {name, email} = request.body
-    users.push({
-      id:1,
+    const users = {
+      id:randomUUID(),
       name: name,
-      email: email})
+      email: email
+    }
+    database.insert('users', users)
 
-      return response.writeHead(201).end()
+    return response.writeHead(201).end()
   }
   return response.writeHead(404).end()
 })
