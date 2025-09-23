@@ -22,7 +22,7 @@ ir processando os dados do arquivo a medida que ele esta chegando, sem a nesseci
 recebe a informação digitada no terminal e devolve para o terminal
 
 - STREAM DE ESCRIA E TRANSFORMAÇÃO
-chunk -> é um pedaçõ que foi ledo na stream de leitura, tudo que é inviado em this.push
+chunk -> é um pedaçõ que foi lido na stream de leitura, tudo que é inviado em this.push
 encoding -> como a informação esta codificada 
 callback -> é uma função que a stream de escrita prscisa chamar quando ela terminou de fazer o que ela precisava fazer com aquela informação
 
@@ -33,3 +33,7 @@ A stream de escrita, eu só consigo escrever dados para ela. A stream de transfo
 uma stream duplex, que pode ter tanto o método de leitura quanto o método de escrita, ou seja, ela pode fazer qualquer tipo de operação, tanto leitura quanto escrita.
 
 poderia pensar uma stream duplex como sendo um arquivo físico do nosso sistema. um arquivo no nosso sistema, podemos tanto ler ele quanto escrever nele, mas não necessariamente pode transformar algo dentro dele.
+
+modulos http, corpo da requisicao JSON e middleware
+
+middleware é um interceptar, que sempre resebe como parametro o request e response

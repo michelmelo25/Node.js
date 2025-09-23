@@ -1,4 +1,5 @@
 import http from 'node:http' 
+import { json } from './middlewares/json.js'
 
 // - Criar usuário
 // - Listagem de Usuários
@@ -28,21 +29,26 @@ import http from 'node:http'
 
 const users = []
 
-const server = http.createServer((request, response) => {
+const server = http.createServer(async (request, response) => {
   const {method, url} = request
 
+  await json(request, response)
+
+  // console.log(body)
+
   if(method === 'GET' && url === '/users'){
-    return response
-    .setHeader('Content-Type', 'application/json')
+    return response    
     .end(JSON.stringify(users))
   }
 
 
   if(method === 'POST' && url ==='/users'){
+
+    const {name, email} = request.body
     users.push({
       id:1,
-      name: 'John Doe',
-      email: 'johndoe@example.com'})
+      name: name,
+      email: email})
 
       return response.writeHead(201).end()
   }
