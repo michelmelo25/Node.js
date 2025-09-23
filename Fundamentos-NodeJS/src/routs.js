@@ -9,14 +9,20 @@ export const routes = [
         method: 'GET',
         path: buildRoutePath('/users'),
         handler: (request, response) => {
-            const users = database.select('users')
+            const {search} = request.query
+
+            const users = database.select('users', search ?{
+                name: search, 
+                email: search
+            }: null)
             return response.end(JSON.stringify(users))
         }
     },
     {
         method: 'POST',
         path: buildRoutePath('/users'),
-        handler: (request, response) => {
+        handler: (request, response) => {          
+
             const {name, email} = request.body
             const users = {
                 id:randomUUID(),
@@ -45,7 +51,7 @@ export const routes = [
             const { name, email } = request.body
 
             database.update('users', id, {name, email})
-            
+
             return response.writeHead(204).end()
         }
     },
