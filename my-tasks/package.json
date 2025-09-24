@@ -7,7 +7,7 @@
     "dev": "node --watch src/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Michel de Melo Vieira",
   "license": "ISC",
   "description": "",
   "dependencies": {
