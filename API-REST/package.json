@@ -2,10 +2,14 @@
   "name": "api-rest",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">= 18"
+  },
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "knex": "node --no-warnings --import tsx ./node_modules/knex/bin/cli.js --knexfile ./knexfile.ts",
     "lint": "eslint src --ext .ts --fix",
+    "build": "tsup src --out-dir build",
     "migrate:create": "npm run knex -- migrate:make --migrations-directory ./src/db/migrations -x ts",
     "test": "vitest"
   },
@@ -20,16 +24,19 @@
     "eslint": "^8.57.1",
     "supertest": "^7.1.4",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.2",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "sqlite3": "^5.1.7"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
     "dotenv": "^17.2.3",
     "fastify": "^5.6.1",
     "knex": "^3.1.0",
-    "sqlite3": "^5.1.7",
+    "pg": "^8.16.3",
+    
     "zod": "^4.1.12"
   }
 }
