@@ -53,12 +53,12 @@ export async function transactionsRotes(app: FastifyInstance) {
     async (request, replay) => {
       const { sessionId } = request.cookies
 
-      const transactions = await knex('transactions')
+      const summary = await knex('transactions')
         .where('session_id', sessionId)
         .sum('amount', { as: 'amount' })
         .first()
 
-      return replay.status(200).send({ transactions })
+      return replay.status(200).send({ summary })
     },
   )
 
@@ -80,7 +80,7 @@ export async function transactionsRotes(app: FastifyInstance) {
 
       replay.cookie('sessionId', sessionId, {
         path: '/',
-        maxAge: 60 * 60 * 24 * 7, // 7 daus
+        maxAge: 60 * 60 * 24 * 7, // 7 days
       })
     }
 
